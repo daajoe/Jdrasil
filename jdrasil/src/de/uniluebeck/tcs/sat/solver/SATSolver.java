@@ -77,7 +77,18 @@ public abstract class SATSolver implements java.io.Serializable {
 	 * @return
 	 */
 	public abstract boolean solve();
-	
+
+	/**
+	 * Solve the satisfiability problem for the currently holden formula.
+	 * This method returns true if, and only if, the solver found a satisfying assignment.
+	 * If the solver reports that the formula has no solution, or if the solver fails due to a time out
+	 * or an error, this method should return false.
+	 * @parm timeout
+	 * @return
+	 */
+	public abstract boolean solve(Integer timeout);
+
+
 	/**
 	 * Compute a model, i.e., a satisfying assignment of the formula.
 	 * This method should only be called after solve() was called and returned true.

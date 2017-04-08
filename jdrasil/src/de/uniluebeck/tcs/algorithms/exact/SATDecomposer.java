@@ -123,7 +123,7 @@ public class SATDecomposer<T extends Comparable<T>> implements TreeDecomposer<T>
 		solver.addFormula(encoder.addAtMost(k));
 		
 		// as long as we can improve, improve
-		while (solver.solve() && k >= lb) {
+		while (solver.solve(App.getTimeout()) && k >= lb) {
 			if (k < ub) App.reportNewSolution(k);
 			permutation = encoder.getPermutation(solver.getModel());
 			k = k - 1;
@@ -152,13 +152,13 @@ public class SATDecomposer<T extends Comparable<T>> implements TreeDecomposer<T>
 		solver.addFormula(encoder.lowerUB(k));
 		
 		// as long as we can improve -> improve
-		search: while (solver.solve() && k >= lb) {
+		search: while (solver.solve(App.getTimeout()) && k >= lb) {
 			
 			// find a model that actually induces a tree-decomposition
 			Formula lazy = encoder.getLazyConstraint(solver.getModel());
 			while (lazy != null) {
 				solver.addFormula(lazy);
-				if (!solver.solve()) break search;
+				if (!solver.solve(App.getTimeout())) break search;
 				lazy = encoder.getLazyConstraint(solver.getModel());
 			}
 			

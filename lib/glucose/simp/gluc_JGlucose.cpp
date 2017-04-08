@@ -63,6 +63,7 @@ jboolean JNICALL Java_gluc_JGlucose_gadd(JNIEnv *env, jclass obj, jlong handle, 
     
     vs.push(l);
 
+
   }
   
   bool res = S->addClause(vs);
@@ -89,15 +90,16 @@ jboolean JNICALL Java_gluc_JGlucose_gsat_1time (JNIEnv *, jclass, jlong handle, 
   Glucose::SimpSolver *S = reinterpret_cast<Glucose::SimpSolver *>(handle);
 
   // setup the timeout handler
-  // signal (SIGALRM, catchalrm);
-  // alarm (t);
+  signal (SIGALRM, catchalrm);
+  alarm (t);
   
   bool res = S->solve();
 
   // test whether a timeout occured
-  // if(terminated){
-  //   return false;
-  // }
+  if(terminated){
+      std::cout << "c timeout after " << t << " secs " << std::endl;
+      return false;
+  }
   return res;  
 }
 

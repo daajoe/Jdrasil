@@ -1,4 +1,4 @@
-# Install script for directory: /Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib
+# Install script for directory: /home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,6 +27,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()
@@ -35,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

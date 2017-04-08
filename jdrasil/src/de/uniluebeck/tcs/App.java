@@ -22,7 +22,7 @@ import de.uniluebeck.tcs.sat.encodings.GenericCardinalityEncoder;
  * It is developed at the Universitaet zu Luebeck in context of the PACE challenge (www.pacechallenge.wordpress.com).
  */
 public class App {
-	
+
 	/** Version of the program. */
 	private static final float VERSION = 1f;
 	
@@ -119,8 +119,8 @@ public class App {
 				if (a.equals("-h")) {
 					printHelp();
 					continue;
-				} 
-				
+				}
+
 				// catch format errors
 				if (a.length() < 2 || (a.length() == 2 && i == args.length-1)) {
 					System.err.println("Error parsing arguments.");
@@ -199,6 +199,17 @@ public class App {
 			return System.currentTimeMillis();
 		}
 	}
+
+    /**
+     * 	Get the random seed
+     */
+    public static Integer getTimeout(){
+        if (parameters.containsKey("t")) {
+            return Integer.parseInt(parameters.get("t"));
+        } else {
+            return null;
+        }
+    }
 	
 	/**
 	 * Log a message as comment (with a leading 'c') to the output. 

@@ -68,6 +68,15 @@ public class GlucoseSATSolver extends SATSolver {
 	}
 
 	@Override
+	public boolean solve(Integer timeout) {
+	    if (timeout == null){
+	        return solve();
+        }
+		boolean b = solver.solve(timeout);
+		return b;
+	}
+
+	@Override
 	public Map<Integer, Boolean> getModel() {
 		Map<Integer, Boolean> model = new HashMap<>();
 		for (Integer v : variables) {

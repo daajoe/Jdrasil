@@ -82,6 +82,20 @@ public class GlucoseParallelSATSolver extends SATSolver {
 	}
 
 	@Override
+	public boolean solve(Integer timeout) {
+	    throw new RuntimeException("Not implemented yet.");
+//		solver = new JPGlucose();
+//		for(List<Integer> C : clauses){
+//			solver.addClause(C);
+//
+//		}
+//
+//		boolean b = solver.solve(timeout);
+//		return b;
+	}
+
+
+	@Override
 	public Map<Integer, Boolean> getModel() {
 		Map<Integer, Boolean> model = new HashMap<>();
 		for (Integer v : variables) {

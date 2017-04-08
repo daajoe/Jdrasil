@@ -39,38 +39,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.5.1/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.5.1/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib
+CMAKE_SOURCE_DIR = /home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib
+CMAKE_BINARY_DIR = /home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.5.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.5.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib/CMakeFiles /Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib/CMakeFiles /home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bannach/Documents/Uni/repos/programming/pace/Track_A/java/lib/pblib/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vagrant/src/treewidth-portfolio/solvers/exact/jdrasil/lib/pblib/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,58 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tar_lib
-
-# Build rule for target.
-tar_lib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tar_lib
-.PHONY : tar_lib
-
-# fast build rule for target.
-tar_lib/fast:
-	$(MAKE) -f CMakeFiles/tar_lib.dir/build.make CMakeFiles/tar_lib.dir/build
-.PHONY : tar_lib/fast
-
-#=============================================================================
-# Target rules for targets named pbencoder
-
-# Build rule for target.
-pbencoder: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pbencoder
-.PHONY : pbencoder
-
-# fast build rule for target.
-pbencoder/fast:
-	$(MAKE) -f CMakeFiles/pbencoder.dir/build.make CMakeFiles/pbencoder.dir/build
-.PHONY : pbencoder/fast
-
-#=============================================================================
-# Target rules for targets named pbo2maxsat
-
-# Build rule for target.
-pbo2maxsat: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pbo2maxsat
-.PHONY : pbo2maxsat
-
-# fast build rule for target.
-pbo2maxsat/fast:
-	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/build
-.PHONY : pbo2maxsat/fast
-
-#=============================================================================
-# Target rules for targets named fuzzer
-
-# Build rule for target.
-fuzzer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 fuzzer
-.PHONY : fuzzer
-
-# fast build rule for target.
-fuzzer/fast:
-	$(MAKE) -f CMakeFiles/fuzzer.dir/build.make CMakeFiles/fuzzer.dir/build
-.PHONY : fuzzer/fast
-
-#=============================================================================
 # Target rules for targets named tar
 
 # Build rule for target.
@@ -189,17 +137,17 @@ setup/fast:
 .PHONY : setup/fast
 
 #=============================================================================
-# Target rules for targets named pblib
+# Target rules for targets named pbencoder
 
 # Build rule for target.
-pblib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pblib
-.PHONY : pblib
+pbencoder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pbencoder
+.PHONY : pbencoder
 
 # fast build rule for target.
-pblib/fast:
-	$(MAKE) -f CMakeFiles/pblib.dir/build.make CMakeFiles/pblib.dir/build
-.PHONY : pblib/fast
+pbencoder/fast:
+	$(MAKE) -f CMakeFiles/pbencoder.dir/build.make CMakeFiles/pbencoder.dir/build
+.PHONY : pbencoder/fast
 
 #=============================================================================
 # Target rules for targets named cpfiles
@@ -213,6 +161,58 @@ cpfiles: cmake_check_build_system
 cpfiles/fast:
 	$(MAKE) -f CMakeFiles/cpfiles.dir/build.make CMakeFiles/cpfiles.dir/build
 .PHONY : cpfiles/fast
+
+#=============================================================================
+# Target rules for targets named pblib
+
+# Build rule for target.
+pblib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pblib
+.PHONY : pblib
+
+# fast build rule for target.
+pblib/fast:
+	$(MAKE) -f CMakeFiles/pblib.dir/build.make CMakeFiles/pblib.dir/build
+.PHONY : pblib/fast
+
+#=============================================================================
+# Target rules for targets named fuzzer
+
+# Build rule for target.
+fuzzer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fuzzer
+.PHONY : fuzzer
+
+# fast build rule for target.
+fuzzer/fast:
+	$(MAKE) -f CMakeFiles/fuzzer.dir/build.make CMakeFiles/fuzzer.dir/build
+.PHONY : fuzzer/fast
+
+#=============================================================================
+# Target rules for targets named tar_lib
+
+# Build rule for target.
+tar_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tar_lib
+.PHONY : tar_lib
+
+# fast build rule for target.
+tar_lib/fast:
+	$(MAKE) -f CMakeFiles/tar_lib.dir/build.make CMakeFiles/tar_lib.dir/build
+.PHONY : tar_lib/fast
+
+#=============================================================================
+# Target rules for targets named pbo2maxsat
+
+# Build rule for target.
+pbo2maxsat: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pbo2maxsat
+.PHONY : pbo2maxsat
+
+# fast build rule for target.
+pbo2maxsat/fast:
+	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/build
+.PHONY : pbo2maxsat/fast
 
 BasicPBSolver/SATSolverClauseDatabase.o: BasicPBSolver/SATSolverClauseDatabase.cpp.o
 
@@ -1084,8 +1084,8 @@ pbo2maxsat.o: pbo2maxsat.cpp.o
 
 # target to build an object file
 pbo2maxsat.cpp.o:
-	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/pbo2maxsat.cpp.o
 	$(MAKE) -f CMakeFiles/pblib.dir/build.make CMakeFiles/pblib.dir/pbo2maxsat.cpp.o
+	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/pbo2maxsat.cpp.o
 .PHONY : pbo2maxsat.cpp.o
 
 pbo2maxsat.i: pbo2maxsat.cpp.i
@@ -1094,8 +1094,8 @@ pbo2maxsat.i: pbo2maxsat.cpp.i
 
 # target to preprocess a source file
 pbo2maxsat.cpp.i:
-	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/pbo2maxsat.cpp.i
 	$(MAKE) -f CMakeFiles/pblib.dir/build.make CMakeFiles/pblib.dir/pbo2maxsat.cpp.i
+	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/pbo2maxsat.cpp.i
 .PHONY : pbo2maxsat.cpp.i
 
 pbo2maxsat.s: pbo2maxsat.cpp.s
@@ -1104,8 +1104,8 @@ pbo2maxsat.s: pbo2maxsat.cpp.s
 
 # target to generate assembly for a file
 pbo2maxsat.cpp.s:
-	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/pbo2maxsat.cpp.s
 	$(MAKE) -f CMakeFiles/pblib.dir/build.make CMakeFiles/pblib.dir/pbo2maxsat.cpp.s
+	$(MAKE) -f CMakeFiles/pbo2maxsat.dir/build.make CMakeFiles/pbo2maxsat.dir/pbo2maxsat.cpp.s
 .PHONY : pbo2maxsat.cpp.s
 
 preencoder.o: preencoder.cpp.o
@@ -1168,16 +1168,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... tar_lib"
-	@echo "... pbencoder"
-	@echo "... pbo2maxsat"
-	@echo "... fuzzer"
 	@echo "... tar"
 	@echo "... setup"
-	@echo "... pblib"
+	@echo "... pbencoder"
 	@echo "... cpfiles"
+	@echo "... pblib"
+	@echo "... fuzzer"
+	@echo "... edit_cache"
+	@echo "... tar_lib"
+	@echo "... pbo2maxsat"
 	@echo "... BasicPBSolver/SATSolverClauseDatabase.o"
 	@echo "... BasicPBSolver/SATSolverClauseDatabase.i"
 	@echo "... BasicPBSolver/SATSolverClauseDatabase.s"

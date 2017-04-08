@@ -57,8 +57,8 @@ public class JGlucose {
 	* @deprecated
  	*/	
     public void setTimeOut(int t){
-        //this.t = t;
-	this.t = 0;
+        this.t = t;
+    //	this.t = 0;
     }
 
 
@@ -89,8 +89,27 @@ public class JGlucose {
 	 * Solve the formula
 	 * @return true if the formula is satisfiable (and if it was solved within the given time)
 	 */
-    public boolean solve() {            
-	solvable = gsat(handle);
+    public boolean solve() {
+
+        if(solvable){
+            if(t > 0){
+                solvable = gsat_time(handle, t);
+
+            }
+            else{
+                solvable = gsat(handle);
+            }
+        }
+        return solvable;
+    }
+
+    /**
+     * Solve the formula
+     * @param timeout
+     * @return true if the formula is satisfiable (and if it was solved within the given time)
+     */
+    public boolean solve(int timeout) {
+        solvable = gsat_time(handle, timeout);
         return solvable;
     }
 
